@@ -1,7 +1,8 @@
 <!doctype html>
 <html>
 <head>
-  <title>Flip!</title>
+  <title>Thumb</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body { margin: 0; }
     section.book {
@@ -33,11 +34,10 @@
       scroll-snap-type: x mandatory;
     }
 
-    .book > .page {
+    .page {
       scroll-snap-align: start;
       flex: 0 0 100hh;
       color: #575279;
-      font-size: 30px;
 
       /* Articles contain text with padding, and padding doesn't count towards height/width */
       box-sizing: border-box;
