@@ -8,117 +8,88 @@
       /* Book is laid out using flexbox and hide overflow */
       display: flex;
       height: 100vh;
-      overflow-x: auto;
+      overflow-x: scroll; /* TODO: consider auto here */
 
       /* Use scroll-snap to make sure you're on the page */
       scroll-padding-left: 0;
     }
 
     /* Articles alternate in colour */
-    article:nth-child(odd) { background-color: #faf4ed; }
-    article:nth-child(even) { background-color: #f2e9e1; }
+    .page:nth-child(odd) { background-color: #faf4ed; }
+    .page:nth-child(even) { background-color: #f2e9e1; }
 
-    article {
+    article:nth-child(2) {
+      background-color: pink;
+    }
+
+    .book {
+      text-align: left;
+      width: 100hh;
+      height: 100vh;
+      overflow-x: scroll;
+      display: flex;
+      box-sizing: border-box;
+      border: 1px solid #000;
+      scroll-snap-type: x mandatory;
+    }
+
+    .book > .page {
+      scroll-snap-align: start;
+      flex: 0 0 100hh;
+      color: #575279;
+      font-size: 30px;
+
       /* Articles contain text with padding, and padding doesn't count towards height/width */
       box-sizing: border-box;
       padding: 1em;
 
       /* Articles are 100% height and don't scroll */
       height: 100%;
-      width: 500px;
-      flex-shrink: 0;
-      flex-grow: 0;
+      flex: 0 0 100%;
       overflow: hidden;
 
       /* Articles snap to the viewport when you stop scrolling */
       scroll-snap-align: start;
     }
-
-    article:nth-child(2) {
-      background-color: pink;
-    }
   </style>
 
   <script>
-    const articles = document.querySelectorAll('article');
-    console.log("hi", articles)
-    if (articles.length >= 2) {
-      const secondArticle = articles[1];
-      secondArticle.scrollTop = 100;
-    }
+    // setInterval(() => !document.hasFocus() && location.reload(), 1000);
   </script>
 </head>
 <body>
-  <section class="book">
-    <article>
+  <section class="book" id="example-element" style="scroll-padding-left: 0px;">
+    <article class="page">
       <p>Chapter 1: The Unlikely Beginnings</p>
       <p>In the quaint village of Wintervale, nestled between towering snow-capped mountains, lived a young girl named Seraphina Snowbrook. Orphaned at a tender age, she resided with her uncle, who worked tirelessly at the local bookstore, "Wise Words and Wonders." Though life was ordinary, Seraphina felt an unexplainable void, as if she were waiting for something extraordinary to happen.</p>
       <p>One chilly morning, a mysterious letter arrived at the Snowbrook doorstep, addressed to Seraphina. It bore the official crest of the "Aurora Academy of Magic." Her uncle, Mr. Snowbrook, had a curious glint in his eye as he handed her the letter. Unbeknownst to Seraphina, her lineage carried a powerful secret—the blood of a long-forgotten magical lineage.</p>
-      <p>Chapter 2: The Aurora Academy of Magic</p>
-      <p>Eager to uncover the truth about her heritage, Seraphina accepted the invitation to the Aurora Academy of Magic. The magical world she had only read about in books suddenly unveiled itself. The academy stood hidden behind an enchantment, tucked away from the mortal realm. Each student arrived by a magical carriage that carried them through a portal, into a wondrous castle filled with enchanted creatures and mysteries.</p>
-      <p>Seraphina soon found herself under the tutelage of Professor Elric, a kind-hearted wizard with a long beard that touched the ground. Her classmates were a mix of witches and wizards, each showcasing their unique abilities. She befriended Orion, an eccentric boy with wild hair and a penchant for magical creatures, and Leona, a studious girl with a talent for transfiguration.</p>
-      <p>Chapter 3: The Cursed Mirror</p>
-      <p>One day, while wandering the hidden corridors of the academy, Seraphina stumbled upon an ancient mirror, covered in cobwebs. As she peered into its depths, the reflection showed her a sorrowful scene—a figure she recognized as her long-lost mother, trapped inside the mirror's depths.</p>
-      <p>Determined to free her mother, Seraphina embarked on a perilous quest to break the curse. With the help of her friends, she deciphered the cryptic riddles left by the mirror's creator, an enigmatic sorcerer named Arion the Wise. Their journey led them through enchanted forests, across treacherous mountains, and into the heart of a forgotten labyrinth.</p>
-      <p>Chapter 4: The Trials of Wizardry</p>
-      <p>In their pursuit of the elusive cure for the mirror's curse, Seraphina and her friends found themselves facing a series of trials designed to test their magical prowess and character. From battling mythical creatures to outsmarting ancient guardians, they were pushed to their limits. But it was in the face of these challenges that Seraphina discovered her true potential as a sorceress.</p>
-      <p>The trials not only strengthened her magical abilities but also instilled within her a profound sense of responsibility. As the group delved deeper into the mysteries of the magical world, they realized that the curse on the mirror was but a fragment of a grander, darker scheme threatening the safety of both the magical and mortal realms.</p>
-      <p>Chapter 5: The Dark Enigma</p>
-      <p>In their quest for answers, Seraphina and her friends uncovered an ancient prophecy, foretelling the return of an evil sorceress named Morana, who sought to plunge the world into eternal darkness. The key to stopping her lay hidden within the Aurora Academy's library—a powerful artifact called the "Tome of Eternity."</p>
-      <p>As the forces of darkness gathered, Seraphina and her friends raced against time to find the Tome before Morana did. But the enemy was cunning, and betrayal lurked in the most unexpected places. Through the tumultuous battles and heart-wrenching losses, Seraphina realized that true strength lay not just in magic but also in love, loyalty, and the unbreakable bonds of friendship.</p>
-      <p>Chapter 6: The Final Confrontation</p>
-      <p>In an epic showdown beneath the blood moon, Seraphina faced Morana. The two sorceresses clashed with spells that lit up the night sky like a celestial dance. But Seraphina's resolve and determination were stronger, fueled by the love for her family, friends, and the magical world she had come to cherish.</p>
-      <p>In the final moments of the battle, Seraphina used her newfound wisdom to reveal the hidden weakness of Morana's dark powers. With a burst of brilliance, she sealed the evil sorceress away, breaking the curse on the mirror and freeing her mother's spirit.</p>
-      <p>Chapter 7: The Return Home</p>
-      <p>As the first rays of dawn painted the sky, Seraphina returned to Wintervale, triumphant yet humbled by her adventures. She brought magic back with her, not as a secretive realm but as a bridge connecting the ordinary and the extraordinary.</p>
-      <p>With the support of her friends and the wisdom of Professor Elric, Seraphina established the "Snowbrook School of Magic" right in the heart of Wintervale, welcoming young witches and wizards from all corners of the world. And so, the Chronicles of Seraphina Snowbrook began, spreading the enchantment of magic to future generations.</p>
-      <p>And in the years to come, the name "Seraphina Snowbrook" became synonymous with bravery, kindness, and the boundless possibilities of the magical world she had once yearned to discover.</p>
     </article>
-
-    <article>
-      <p>Chapter 1: The Unlikely Beginnings</p>
-      <p>In the quaint village of Wintervale, nestled between towering snow-capped mountains, lived a young girl named Seraphina Snowbrook. Orphaned at a tender age, she resided with her uncle, who worked tirelessly at the local bookstore, "Wise Words and Wonders." Though life was ordinary, Seraphina felt an unexplainable void, as if she were waiting for something extraordinary to happen.</p>
-      <p>One chilly morning, a mysterious letter arrived at the Snowbrook doorstep, addressed to Seraphina. It bore the official crest of the "Aurora Academy of Magic." Her uncle, Mr. Snowbrook, had a curious glint in his eye as he handed her the letter. Unbeknownst to Seraphina, her lineage carried a powerful secret—the blood of a long-forgotten magical lineage.</p>
+    <article class="page">
       <p>Chapter 2: The Aurora Academy of Magic</p>
       <p>Eager to uncover the truth about her heritage, Seraphina accepted the invitation to the Aurora Academy of Magic. The magical world she had only read about in books suddenly unveiled itself. The academy stood hidden behind an enchantment, tucked away from the mortal realm. Each student arrived by a magical carriage that carried them through a portal, into a wondrous castle filled with enchanted creatures and mysteries.</p>
       <p>Seraphina soon found herself under the tutelage of Professor Elric, a kind-hearted wizard with a long beard that touched the ground. Her classmates were a mix of witches and wizards, each showcasing their unique abilities. She befriended Orion, an eccentric boy with wild hair and a penchant for magical creatures, and Leona, a studious girl with a talent for transfiguration.</p>
-      <p>Chapter 3: The Cursed Mirror</p>
-      <p>One day, while wandering the hidden corridors of the academy, Seraphina stumbled upon an ancient mirror, covered in cobwebs. As she peered into its depths, the reflection showed her a sorrowful scene—a figure she recognized as her long-lost mother, trapped inside the mirror's depths.</p>
-      <p>Determined to free her mother, Seraphina embarked on a perilous quest to break the curse. With the help of her friends, she deciphered the cryptic riddles left by the mirror's creator, an enigmatic sorcerer named Arion the Wise. Their journey led them through enchanted forests, across treacherous mountains, and into the heart of a forgotten labyrinth.</p>
-      <p>Chapter 4: The Trials of Wizardry</p>
-      <p>In their pursuit of the elusive cure for the mirror's curse, Seraphina and her friends found themselves facing a series of trials designed to test their magical prowess and character. From battling mythical creatures to outsmarting ancient guardians, they were pushed to their limits. But it was in the face of these challenges that Seraphina discovered her true potential as a sorceress.</p>
-      <p>The trials not only strengthened her magical abilities but also instilled within her a profound sense of responsibility. As the group delved deeper into the mysteries of the magical world, they realized that the curse on the mirror was but a fragment of a grander, darker scheme threatening the safety of both the magical and mortal realms.</p>
-      <p>Chapter 5: The Dark Enigma</p>
-      <p>In their quest for answers, Seraphina and her friends uncovered an ancient prophecy, foretelling the return of an evil sorceress named Morana, who sought to plunge the world into eternal darkness. The key to stopping her lay hidden within the Aurora Academy's library—a powerful artifact called the "Tome of Eternity."</p>
-      <p>As the forces of darkness gathered, Seraphina and her friends raced against time to find the Tome before Morana did. But the enemy was cunning, and betrayal lurked in the most unexpected places. Through the tumultuous battles and heart-wrenching losses, Seraphina realized that true strength lay not just in magic but also in love, loyalty, and the unbreakable bonds of friendship.</p>
-      <p>Chapter 6: The Final Confrontation</p>
-      <p>In an epic showdown beneath the blood moon, Seraphina faced Morana. The two sorceresses clashed with spells that lit up the night sky like a celestial dance. But Seraphina's resolve and determination were stronger, fueled by the love for her family, friends, and the magical world she had come to cherish.</p>
-      <p>In the final moments of the battle, Seraphina used her newfound wisdom to reveal the hidden weakness of Morana's dark powers. With a burst of brilliance, she sealed the evil sorceress away, breaking the curse on the mirror and freeing her mother's spirit.</p>
-      <p>Chapter 7: The Return Home</p>
-      <p>As the first rays of dawn painted the sky, Seraphina returned to Wintervale, triumphant yet humbled by her adventures. She brought magic back with her, not as a secretive realm but as a bridge connecting the ordinary and the extraordinary.</p>
-      <p>With the support of her friends and the wisdom of Professor Elric, Seraphina established the "Snowbrook School of Magic" right in the heart of Wintervale, welcoming young witches and wizards from all corners of the world. And so, the Chronicles of Seraphina Snowbrook began, spreading the enchantment of magic to future generations.</p>
-      <p>And in the years to come, the name "Seraphina Snowbrook" became synonymous with bravery, kindness, and the boundless possibilities of the magical world she had once yearned to discover.</p>
     </article>
-
-    <article>
-      <p>Chapter 1: The Unlikely Beginnings</p>
-      <p>In the quaint village of Wintervale, nestled between towering snow-capped mountains, lived a young girl named Seraphina Snowbrook. Orphaned at a tender age, she resided with her uncle, who worked tirelessly at the local bookstore, "Wise Words and Wonders." Though life was ordinary, Seraphina felt an unexplainable void, as if she were waiting for something extraordinary to happen.</p>
-      <p>One chilly morning, a mysterious letter arrived at the Snowbrook doorstep, addressed to Seraphina. It bore the official crest of the "Aurora Academy of Magic." Her uncle, Mr. Snowbrook, had a curious glint in his eye as he handed her the letter. Unbeknownst to Seraphina, her lineage carried a powerful secret—the blood of a long-forgotten magical lineage.</p>
-      <p>Chapter 2: The Aurora Academy of Magic</p>
-      <p>Eager to uncover the truth about her heritage, Seraphina accepted the invitation to the Aurora Academy of Magic. The magical world she had only read about in books suddenly unveiled itself. The academy stood hidden behind an enchantment, tucked away from the mortal realm. Each student arrived by a magical carriage that carried them through a portal, into a wondrous castle filled with enchanted creatures and mysteries.</p>
-      <p>Seraphina soon found herself under the tutelage of Professor Elric, a kind-hearted wizard with a long beard that touched the ground. Her classmates were a mix of witches and wizards, each showcasing their unique abilities. She befriended Orion, an eccentric boy with wild hair and a penchant for magical creatures, and Leona, a studious girl with a talent for transfiguration.</p>
+    <article class="page">
       <p>Chapter 3: The Cursed Mirror</p>
       <p>One day, while wandering the hidden corridors of the academy, Seraphina stumbled upon an ancient mirror, covered in cobwebs. As she peered into its depths, the reflection showed her a sorrowful scene—a figure she recognized as her long-lost mother, trapped inside the mirror's depths.</p>
       <p>Determined to free her mother, Seraphina embarked on a perilous quest to break the curse. With the help of her friends, she deciphered the cryptic riddles left by the mirror's creator, an enigmatic sorcerer named Arion the Wise. Their journey led them through enchanted forests, across treacherous mountains, and into the heart of a forgotten labyrinth.</p>
+    </article>
+    <article class="page">
       <p>Chapter 4: The Trials of Wizardry</p>
       <p>In their pursuit of the elusive cure for the mirror's curse, Seraphina and her friends found themselves facing a series of trials designed to test their magical prowess and character. From battling mythical creatures to outsmarting ancient guardians, they were pushed to their limits. But it was in the face of these challenges that Seraphina discovered her true potential as a sorceress.</p>
       <p>The trials not only strengthened her magical abilities but also instilled within her a profound sense of responsibility. As the group delved deeper into the mysteries of the magical world, they realized that the curse on the mirror was but a fragment of a grander, darker scheme threatening the safety of both the magical and mortal realms.</p>
+    </article>
+    <article class="page">
       <p>Chapter 5: The Dark Enigma</p>
       <p>In their quest for answers, Seraphina and her friends uncovered an ancient prophecy, foretelling the return of an evil sorceress named Morana, who sought to plunge the world into eternal darkness. The key to stopping her lay hidden within the Aurora Academy's library—a powerful artifact called the "Tome of Eternity."</p>
       <p>As the forces of darkness gathered, Seraphina and her friends raced against time to find the Tome before Morana did. But the enemy was cunning, and betrayal lurked in the most unexpected places. Through the tumultuous battles and heart-wrenching losses, Seraphina realized that true strength lay not just in magic but also in love, loyalty, and the unbreakable bonds of friendship.</p>
+    </article>
+    <article class="page">
       <p>Chapter 6: The Final Confrontation</p>
       <p>In an epic showdown beneath the blood moon, Seraphina faced Morana. The two sorceresses clashed with spells that lit up the night sky like a celestial dance. But Seraphina's resolve and determination were stronger, fueled by the love for her family, friends, and the magical world she had come to cherish.</p>
       <p>In the final moments of the battle, Seraphina used her newfound wisdom to reveal the hidden weakness of Morana's dark powers. With a burst of brilliance, she sealed the evil sorceress away, breaking the curse on the mirror and freeing her mother's spirit.</p>
+    </article>
+    <article class="page">
       <p>Chapter 7: The Return Home</p>
       <p>As the first rays of dawn painted the sky, Seraphina returned to Wintervale, triumphant yet humbled by her adventures. She brought magic back with her, not as a secretive realm but as a bridge connecting the ordinary and the extraordinary.</p>
       <p>With the support of her friends and the wisdom of Professor Elric, Seraphina established the "Snowbrook School of Magic" right in the heart of Wintervale, welcoming young witches and wizards from all corners of the world. And so, the Chronicles of Seraphina Snowbrook began, spreading the enchantment of magic to future generations.</p>
