@@ -3,58 +3,11 @@
 <head>
   <title>Thumb</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="style.css">
   <style>
-    body { margin: 0; }
-    section.book {
-      /* Book is laid out using flexbox and hide overflow */
-      display: flex;
-      height: 100vh;
-      overflow-x: scroll; /* TODO: consider auto here */
-
-      /* Use scroll-snap to make sure you're on the page */
-      scroll-padding-left: 0;
-    }
-
-    /* Articles alternate in colour */
-    .page:nth-child(odd) { background-color: #faf4ed; }
-    .page:nth-child(even) { background-color: #f2e9e1; }
-
-    article:nth-child(2) {
-      background-color: pink;
-    }
-
-    .book {
-      text-align: left;
-      width: 100hh;
-      height: 100vh;
-      overflow-x: scroll;
-      display: flex;
-      box-sizing: border-box;
-      border: 1px solid #000;
-      scroll-snap-type: x mandatory;
-    }
-
-    .page {
-      scroll-snap-align: start;
-      flex: 0 0 100hh;
-      color: #575279;
-
-      /* Articles contain text with padding, and padding doesn't count towards height/width */
-      box-sizing: border-box;
-      padding: 1em;
-
-      /* Articles are 100% height and don't scroll */
-      height: 100%;
-      flex: 0 0 100%;
-      overflow: hidden;
-
-      /* Articles snap to the viewport when you stop scrolling */
-      scroll-snap-align: start;
-    }
   </style>
 
   <script>
-    // setInterval(() => !document.hasFocus() && location.reload(), 1000);
   </script>
 </head>
 <body>

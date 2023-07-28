@@ -1,0 +1,33 @@
+/* Book is full screen, no need for margins */
+body { margin: 0; }
+
+/* Articles alternate in colour, and are low contrast */
+.page { color: #575279; }
+.page:nth-child(odd) { background-color: #faf4ed; }
+.page:nth-child(even) { background-color: #f2e9e1; }
+
+.book {
+  /* Book takes up the full screen */
+  display: flex;
+  overflow-x: scroll;
+  width: 100hh;
+  height: 100vh;
+
+  /* Book pages snap to viewport */
+  scroll-snap-type: x mandatory;
+}
+
+.page {
+  /* Page contains text with padding, and padding doesn't count towards height/width */
+  box-sizing: border-box;
+  padding: 1em;
+  line-height: 1.5em;
+
+  /* Page is 100% height and don't scroll */
+  height: 100%;
+  flex: 0 0 100%;
+  overflow: hidden;
+
+  /* Page snaps to the viewport when you stop scrolling */
+  scroll-snap-align: start;
+}
