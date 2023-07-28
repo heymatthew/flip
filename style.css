@@ -35,3 +35,8 @@ body {
   /* Page snaps to the viewport when you stop scrolling */
   scroll-snap-align: start;
 }
+
+.page > p {
+  max-width: 500px;
+  margin: 1em auto;
+}
