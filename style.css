@@ -1,10 +1,6 @@
 /* Book is full screen, no need for margins */
 body { margin: 0; }
 
-/* Articles alternate in colour, and are low contrast */
-.page { color: #575279; }
-.page:nth-child(odd) { background-color: #faf4ed; }
-.page:nth-child(even) { background-color: #f2e9e1; }
 
 .book {
   /* Book takes up the full screen */
@@ -16,6 +12,11 @@ body { margin: 0; }
   /* Book pages snap to viewport */
   scroll-snap-type: x mandatory;
 }
+
+/* Pages alternate in colour, and are low contrast */
+.page { color: #575279; }
+.page:nth-child(odd) { background-color: #faf4ed; }
+.page:nth-child(even) { background-color: #f2e9e1; }
 
 .page {
   /* Page contains text with padding, and padding doesn't count towards height/width */
