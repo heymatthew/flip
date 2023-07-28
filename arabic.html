@@ -11,9 +11,11 @@
 
   <script>
     window.addEventListener('load', () => {
-      /* RTL hack hack hack */
+      // Scroll book to the right on page load
       const book = document.querySelector('.book');
-      book.scrollLeft = book.scrollWidth;
+      if (book.scrollLeft === 0) { // ...but don't loose the page you're on
+        book.scrollLeft = book.scrollWidth;
+      }
     });
   </script>
 </head>
