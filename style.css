@@ -1,6 +1,9 @@
-/* Book is full screen, no need for margins */
-body { margin: 0; }
-
+body {
+  /* Body will "peekaboo" with colour on mobile */
+  background: rgb(215,130,126);
+  background: linear-gradient(47deg, rgba(215,130,126,1) 0%, rgba(40,105,131,1) 100%);
+  margin: 0;
+}
 
 .book {
   /* Book takes up the full screen */
